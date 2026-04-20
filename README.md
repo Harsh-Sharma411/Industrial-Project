@@ -1,3 +1,4 @@
+HEAD
 # Industrial-Project
 
 Experiment: Experiential Based Learning
@@ -79,3 +80,53 @@ Understood real-world problem solving in legal domain
 Conclusion:
 
 Lawgic provides a modern digital solution for legal dispute resolution by bridging the gap between clients and lawyers. It simplifies legal processes, enhances accessibility, and ensures secure and efficient case management.
+
+# Lawgic AI
+
+Lawgic AI is scaffolded as a React + Vite app for:
+
+- land dispute intake
+- rental agreement disputes
+- general legal case summaries
+- AI text and voice-assisted support
+- lawyer portfolio discovery with reviews and filtering
+
+## Run locally
+
+1. `npm install`
+2. Configure `.env`
+3. In terminal one, run `npm run server`
+4. In terminal two, run `npm run dev`
+5. Open the Vite URL, usually `http://localhost:5173`
+
+## PostgreSQL
+
+The app now uses PostgreSQL for users, sessions, lawyers, and cases.
+
+## Demo admin
+
+- Email: `admin@lawgic.ai`
+- Password: `admin123`
+
+## OpenAI assistant
+
+1. Copy `.env.example` to `.env`
+2. Set `OPENAI_API_KEY`
+3. Optionally change `OPENAI_MODEL`
+4. Restart `npm run server`
+
+Default model: `gpt-5.4-mini`
+
+## Included
+
+- componentized React UI
+- interactive AI assistant demo
+- browser voice recognition support
+- case upload and intake summary flow
+- searchable lawyer portfolio section
+- Vite config and package manifest for future backend integration
+- Express backend with lawyer, assistant, and case submission APIs
+- JSON file persistence in `server/data`
+- Registration, login, session-based auth, and admin stats
+- Admin lawyer creation from the frontend
+

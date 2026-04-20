@@ -1,0 +1,512 @@
+:root {
+  --ink: #1f2a37;
+  --muted: #5a6777;
+  --paper: #fcf7f0;
+  --cream: #f6eedf;
+  --card: rgba(255, 250, 242, 0.8);
+  --line: rgba(132, 68, 17, 0.12);
+  --accent: #9a3f10;
+  --accent-bright: #d97706;
+  --teal: #173f3f;
+  --teal-soft: #9ce8df;
+  --shadow: 0 24px 80px rgba(78, 45, 18, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Manrope", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(228, 157, 92, 0.28), transparent 28%),
+    radial-gradient(circle at 85% 20%, rgba(96, 194, 180, 0.2), transparent 22%),
+    linear-gradient(180deg, #f6eedf 0%, #fcf6ee 48%, #fffaf6 100%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0 56px;
+}
+
+.topbar,
+.feature-card,
+.assistant-card,
+.insight-card,
+.intake-card,
+.analysis-card,
+.lawyer-card,
+.metric-card,
+.spotlight-card {
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background: var(--card);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 22px;
+  border-radius: 24px;
+}
+
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-mark,
+.avatar-mark {
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  color: #fffaf2;
+  background: linear-gradient(135deg, var(--accent), var(--accent-bright));
+}
+
+.brand-mark {
+  width: 52px;
+  height: 52px;
+  font-size: 1.35rem;
+  font-family: "Playfair Display", serif;
+}
+
+.avatar-mark {
+  width: 54px;
+  height: 54px;
+  font-weight: 800;
+}
+
+.brand-name,
+.brand-tag,
+.card-label {
+  margin: 0;
+}
+
+.brand-name {
+  font-weight: 800;
+}
+
+.brand-tag,
+.card-label,
+.helper-text,
+.lawyer-subtitle,
+.response-text {
+  color: var(--muted);
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-weight: 700;
+}
+
+.nav-button {
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.nav-button-active {
+  color: var(--accent);
+}
+
+.hero-section {
+  padding-bottom: 32px;
+}
+
+.hero-grid,
+.assistant-grid,
+.intake-grid {
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: 24px;
+  align-items: center;
+  margin-top: 28px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  padding: 8px 12px;
+  margin-bottom: 16px;
+  border-radius: 999px;
+  background: rgba(154, 63, 16, 0.08);
+  color: var(--accent);
+  font-weight: 800;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 12px;
+}
+
+h1,
+h2 {
+  font-family: "Playfair Display", serif;
+  line-height: 1.04;
+}
+
+h1 {
+  max-width: 11ch;
+  font-size: clamp(3rem, 7vw, 5.2rem);
+}
+
+h2 {
+  max-width: 13ch;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+}
+
+p {
+  line-height: 1.7;
+}
+
+.hero-text {
+  max-width: 60ch;
+  color: var(--muted);
+}
+
+.hero-actions,
+.hero-metrics,
+.mini-list,
+.toolbar,
+.meta-row,
+.suggestions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  border: 0;
+  cursor: pointer;
+  border-radius: 16px;
+  padding: 14px 20px;
+  font-weight: 800;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover,
+.suggestion-pill:hover {
+  transform: translateY(-2px);
+}
+
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-primary {
+  color: #fff8f1;
+  background: linear-gradient(135deg, var(--accent), var(--accent-bright));
+  box-shadow: 0 14px 28px rgba(154, 63, 16, 0.22);
+}
+
+.btn-secondary {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid var(--line);
+}
+
+.btn-voice {
+  color: var(--teal-soft);
+  background: var(--teal);
+}
+
+.btn-wide {
+  width: 100%;
+}
+
+.metric-card,
+.spotlight-card,
+.feature-card,
+.assistant-card,
+.insight-card,
+.intake-card,
+.analysis-card,
+.lawyer-card {
+  border-radius: 28px;
+  padding: 24px;
+}
+
+.metric-card {
+  min-width: 170px;
+}
+
+.metric-card strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at bottom right, rgba(156, 232, 223, 0.72), transparent 28%),
+    linear-gradient(180deg, rgba(255, 251, 246, 0.88), rgba(255, 248, 241, 0.7));
+}
+
+.mini-list span,
+.status-pill,
+.suggestion-pill,
+.meta-row span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.mini-list span,
+.meta-row span {
+  background: rgba(26, 39, 57, 0.92);
+  color: #fbf6ef;
+}
+
+.page-content {
+  display: grid;
+  gap: 14px;
+}
+
+.section {
+  padding: 34px 0;
+}
+
+.section-heading {
+  margin-bottom: 24px;
+}
+
+.solutions-grid,
+.lawyer-grid,
+.case-history-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.feature-index {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: rgba(154, 63, 16, 0.1);
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.assistant-card {
+  background: linear-gradient(180deg, rgba(255, 251, 244, 0.94), rgba(255, 248, 241, 0.82));
+}
+
+.assistant-header,
+.lawyer-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.status-pill {
+  background: rgba(23, 63, 63, 0.12);
+  color: var(--teal);
+}
+
+.suggestion-pill {
+  border: 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink);
+}
+
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 280px;
+  max-height: 360px;
+  padding-right: 6px;
+  overflow: auto;
+}
+
+.chat-bubble {
+  max-width: 84%;
+  padding: 14px 16px;
+  border-radius: 18px;
+}
+
+.chat-bubble.assistant {
+  background: #fffaf3;
+  border: 1px solid var(--line);
+}
+
+.chat-bubble.user {
+  align-self: flex-end;
+  background: #243243;
+  color: #fffaf2;
+}
+
+.assistant-form {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+}
+
+.insight-stack,
+.analysis-stack,
+.auth-form {
+  display: grid;
+  gap: 14px;
+}
+
+.intake-card {
+  display: grid;
+  gap: 16px;
+}
+
+label {
+  display: block;
+  font-weight: 800;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px 16px;
+  border: 1px solid rgba(90, 103, 119, 0.18);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--ink);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.analysis-card {
+  color: #f9f3ea;
+  background: linear-gradient(145deg, #1f2b3d, #344256);
+}
+
+.analysis-card .card-label,
+.analysis-card p {
+  color: rgba(249, 243, 234, 0.84);
+}
+
+.analysis-panel {
+  padding: 16px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.analysis-panel ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+}
+
+.toolbar {
+  margin-bottom: 20px;
+}
+
+.toolbar select {
+  max-width: 240px;
+}
+
+.lawyer-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.review-card {
+  padding: 16px;
+  border-radius: 20px;
+  background: rgba(255, 244, 228, 0.82);
+  border: 1px solid var(--line);
+}
+
+.account-summary,
+.admin-stats {
+  display: grid;
+  gap: 10px;
+}
+
+.admin-stats span {
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(26, 39, 57, 0.92);
+  color: #fbf6ef;
+  font-weight: 700;
+}
+
+@media (max-width: 980px) {
+  .hero-grid,
+  .assistant-grid,
+  .intake-grid,
+  .solutions-grid,
+  .lawyer-grid,
+  .case-history-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar,
+  .assistant-header,
+  .lawyer-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .assistant-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    width: min(100% - 20px, 1200px);
+  }
+
+  .topbar {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 2.9rem;
+  }
+
+  h2 {
+    font-size: 2.2rem;
+  }
+}

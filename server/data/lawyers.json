@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Adv. Aanya Mehra",
+    "specialty": "Land dispute",
+    "city": "Delhi",
+    "experience": "11 years",
+    "rating": 4.9,
+    "casesClosed": 148,
+    "response": "Replies in under 2 hours",
+    "bio": "Focuses on title conflicts, ancestral property disputes, and boundary matters with a document-first strategy.",
+    "review": "She translated a confusing land record dispute into a step-by-step plan and helped us enter the first hearing fully prepared."
+  },
+  {
+    "id": 2,
+    "name": "Adv. Rohan Sethi",
+    "specialty": "Rental agreement",
+    "city": "Mumbai",
+    "experience": "8 years",
+    "rating": 4.8,
+    "casesClosed": 96,
+    "response": "Fast on notice disputes",
+    "bio": "Handles tenancy terms, rent defaults, deposit recovery, eviction notices, and landlord-tenant mediation.",
+    "review": "Direct, practical, and easy to understand. He reviewed our agreement, explained our options, and saved us weeks of confusion."
+  },
+  {
+    "id": 3,
+    "name": "Adv. Kavya Bansal",
+    "specialty": "General",
+    "city": "Bengaluru",
+    "experience": "10 years",
+    "rating": 4.7,
+    "casesClosed": 121,
+    "response": "Strong intake preparation",
+    "bio": "Supports mixed civil matters and general disputes, with particular strength in early-stage case organization.",
+    "review": "Her case intake process was excellent. We walked in with scattered papers and left with a clear action list."
+  },
+  {
+    "id": 4,
+    "name": "Adv. Sameer Nanda",
+    "specialty": "Land dispute",
+    "city": "Jaipur",
+    "experience": "14 years",
+    "rating": 4.9,
+    "casesClosed": 201,
+    "response": "Survey and title specialist",
+    "bio": "Works on possession disputes, mutation issues, encroachment conflicts, and evidence mapping for property cases.",
+    "review": "He knew exactly which land records mattered and helped us structure the dispute chronologically before filing."
+  }
+]
