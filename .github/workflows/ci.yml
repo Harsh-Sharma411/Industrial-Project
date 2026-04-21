@@ -1,0 +1,82 @@
+name: Lawgic AI CI
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+    branches:
+      - master
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: 7589
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      PGHOST: localhost
+      PGPORT: 5432
+      PGDATABASE: postgres
+      PGUSER: postgres
+      PGPASSWORD: 7589
+      PGSSL: no
+      OPENAI_API_KEY: ""
+      OPENAI_MODEL: gpt-5.4-mini
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build frontend
+        run: npm run build
+
+      - name: Start backend
+        run: |
+          npm run server &
+          echo $! > server.pid
+
+      - name: Wait for backend
+        run: |
+          for i in {1..20}; do
+            if curl -fsS http://localhost:8787/api/health; then
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "Backend did not become healthy"
+          exit 1
+
+      - name: Check lawyers API
+        run: curl -fsS http://localhost:8787/api/lawyers
+
+      - name: Stop backend
+        if: always()
+        run: |
+          if [ -f server.pid ]; then
+            kill "$(cat server.pid)" || true
+          fi
